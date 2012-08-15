@@ -20,6 +20,27 @@
 	<properties>
 		<mobicents.slee.version>${project.version}</mobicents.slee.version>
 	</properties>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+   				<groupId>org.mobicents.tools</groupId>
+				<inherited>false</inherited>
+				<executions />
+				<configuration>
+					<excludePoms />
+					<classpathExcludes>
+						<exclude>xml-apis:xml-apis</exclude>
+						<exclude>jtidy:jtidy</exclude>																		
+					</classpathExcludes>
+					<resolveTransitiveDependencies>true</resolveTransitiveDependencies>
+					<eclipseProjectName>slee-tool-remote-slee-connection</eclipseProjectName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
 			
 	<profiles>
 		<profile>
