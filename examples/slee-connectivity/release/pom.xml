@@ -28,31 +28,19 @@
 								</goals>
 								<configuration>
 									<tasks>
-										<copy overwrite="true" todir="${basedir}/../../../release/${release.name}/examples/slee-connectivity">
+										<copy overwrite="true" todir="${release.dir}/examples/slee-connectivity">
 											<fileset dir="${basedir}/../slee/du/target">
 												<include name="**.jar" />
 											</fileset>
 											<fileset dir="${basedir}/../javaee/beans/target/mobicents-slee-connectivity-example-javaee-beans-beans" />
 										</copy>
-										<copy overwrite="true" file="${basedir}/../slee/du/target/build.xml" tofile="${basedir}/../../../release/${release.name}/examples/slee-connectivity/du-management.xml" />
-										<copy overwrite="true" file="${basedir}/build.xml" todir="${basedir}/../../../release/${release.name}/examples/slee-connectivity">
+										<copy overwrite="true" file="${basedir}/../slee/du/target/build.xml" tofile="${release.dir}/examples/slee-connectivity/du-management.xml" />
+										<copy overwrite="true" file="${basedir}/build.xml" todir="${release.dir}/examples/slee-connectivity">
     									<filterset>
     										<filter token="JBOSS.PATH" value="${jboss.path}" />
                       						<filter token="JBOSS.CONFIG" value="${node}" />
     									</filterset>
     								</copy>
-									</tasks>
-								</configuration>
-							</execution>
-							<execution>
-								<id>clear</id>
-								<phase>clear</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<tasks>
-										<delete dir="${basedir}/../../../release/${release.name}/examples/slee-connectivity" />
 									</tasks>
 								</configuration>
 							</execution>

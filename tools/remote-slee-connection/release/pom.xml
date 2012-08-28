@@ -31,7 +31,7 @@
 								</goals>
 								<configuration>
 									<tasks>
-										<copy todir="${basedir}/../../../release/${release.name}/tools/remote-slee-connection">
+										<copy todir="${release.dir}/tools/remote-slee-connection">
 											<fileset dir="${basedir}/../rar/target/mobicents-slee-remote-connection.rar-beans">
 												<include name="mobicents-slee-remote-connection.rar/**" />
 											</fileset>

@@ -32,7 +32,7 @@
 									<tasks>
 										<!-- copy docs -->
 										<copy overwrite="true"
-											todir="${basedir}/../../../../release/${release.name}/examples/slee-connectivity/docs">
+											todir="${release.dir}/docs/examples/slee-connectivity/user-guide">
 											<fileset dir="${basedir}/target/docbook/publish" />
 										</copy>
 									</tasks>
@@ -81,13 +81,13 @@
 					<dependency>
 						<groupId>org.mobicents.jdocbook</groupId>
 						<artifactId>telestax-xslt-ns</artifactId>
-						<version>1.1.0.FINAL</version>
+						<version>1.2.0</version>
 					</dependency>
 					<dependency>
 						<groupId>org.mobicents.jdocbook</groupId>
 						<artifactId>telestax-telscale-style</artifactId>
 						<type>jdocbook-style</type>
-						<version>1.1.0.FINAL</version>
+						<version>1.2.0</version>
 					</dependency>
 				</dependencies>
 				<configuration>
