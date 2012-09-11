@@ -17,10 +17,6 @@
 		<module>rar</module>
 	</modules>
 	
-	<properties>
-		<mobicents.slee.version>${project.version}</mobicents.slee.version>
-	</properties>
-	
 	<build>
 		<plugins>
 			<plugin>
