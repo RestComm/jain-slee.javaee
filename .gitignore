@@ -1,3 +1,9 @@
+# SLEE
+examples/slee-connectivity/docs/sources-mobicents/src/
+examples/slee-connectivity/docs/sources-telscale/src/
+tools/remote-slee-connection/docs/sources-mobicents/src/
+tools/remote-slee-connection/docs/sources-telscale/src/
+
 # Java compiled #
 #################
 *.class
