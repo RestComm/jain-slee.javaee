@@ -14,9 +14,8 @@
 	<properties>
 		<THIS.PLATFORM>Mobicents</THIS.PLATFORM>
 		<JEE.PLATFORM>JBoss Application Server</JEE.PLATFORM>
-		<THIS.ISSUE_TRACKER_URL>http://code.google.com/p/mobicents/issues/list</THIS.ISSUE_TRACKER_URL>
-		<THIS.RELEASE_SOURCE_CODE_URL>http://mobicents.googlecode.com/svn/tags/servers/jain-slee/2.x.y/examples/${docs.example.dirname}</THIS.RELEASE_SOURCE_CODE_URL>
-		<THIS.TRUNK_SOURCE_CODE_URL>http://mobicents.googlecode.com/svn/trunk/servers/jain-slee/examples/${docs.example.dirname}</THIS.TRUNK_SOURCE_CODE_URL>
+		<THIS.ISSUE_TRACKER_URL>http://code.google.com/p/jain-slee/issues/list</THIS.ISSUE_TRACKER_URL>
+		<THIS.GIT_SOURCE_CODE_URL>https://code.google.com/p/jain-slee.javaee/</THIS.GIT_SOURCE_CODE_URL>
 		<example.name.jmx.dir>mobicents-slee-connectivity-example-javaee-beans</example.name.jmx.dir>
 		<jca.ra.dir>mobicents.rar</jca.ra.dir>
 		<author.email.eduardo>emmartins (at) gmail.com</author.email.eduardo>
