@@ -1,4 +1,5 @@
 # SLEE
+${release.dir}
 examples/slee-connectivity/docs/sources-mobicents/src/
 examples/slee-connectivity/docs/sources-telscale/src/
 tools/remote-slee-connection/docs/sources-mobicents/src/
