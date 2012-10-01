@@ -12,6 +12,7 @@ If this final separator is missing, then the documentation will be wrong. -->
 <!ENTITY JEE.PLATFORM "${JEE.PLATFORM}">
 <!ENTITY BOOK_ID "JAIN_SLEE_JCA_Remote_Slee_Connection_User_Guide">
 <!ENTITY THIS.ISSUE_TRACKER_URL "${THIS.ISSUE_TRACKER_URL}">
+<!ENTITY THIS.SOURCE_CODE_URL "${THIS.SOURCE_CODE_URL}">
 <!ENTITY YEAR "2009">
 <!ENTITY HOLDER "Red Hat Inc">
 <!ENTITY AUTHOR.EMAIL.EDUARDO "${author.email.eduardo}">
