@@ -24,13 +24,14 @@
 		<docs.example.name>SleeConnectivity</docs.example.name>
 		<docs.example.dirname>slee-connectivity</docs.example.dirname>
 		<docs.bookid>SleeConnectivity</docs.bookid>
+		<slee.core.version>6.1.1.GA-TelScale</slee.core.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.mobicents.servers.jainslee.core</groupId>
-				<version>${project.version}</version>
+				<version>${slee.core.version}</version>
 				<artifactId>spi</artifactId>
 			</dependency>
 		</dependencies>
