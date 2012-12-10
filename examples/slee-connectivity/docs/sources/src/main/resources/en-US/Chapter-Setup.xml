@@ -47,7 +47,7 @@
 				    </important>
 				<note>
 					<title>Building the binary </title>
-				    <para>You must use Ant to build the binary.</para>
+				    <para>You must use Maven to build the binary.</para>
 				</note>				 
 
 				   <programlisting>
