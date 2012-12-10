@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [<!ENTITY % BOOK_ENTITIES SYSTEM "User_Guide.ent">%BOOK_ENTITIES;]>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "User_Guide.ent">
+%BOOK_ENTITIES;
+]>
 
 <chapter
 	id="configuration_and_running">
@@ -9,12 +12,12 @@
 	
 	<section id="configuration">
 		<title>Configuring &THIS.PLATFORM; Remote SLEE Connection Tool</title>
-		<para>The only configuration needed is setting up the address of the JAIN SLEE container to interact, this is done through the config-property named SleeJndiName inside <filename>slee-ds.xml</filename> file inside the rar archive or directory. ${jboss.bind.address} should be replaced with the hostname used by the JAIN SLEE container.</para>			
+		<para>The only configuration needed is setting up the address of the JAIN SLEE container to interact with the remote connection tool. This is done through the SleeJndiName  config-property in the <filename>slee-ds.xml</filename> file that is located in the rar archive. The ${jboss.bind.address} should be replaced with the hostname used by the JAIN SLEE container.</para>			
 	</section>		
 	
 	<section id="using">
 		<title>Using &THIS.PLATFORM; Remote SLEE Connection Tool</title>
-		<para>The tool installs the SLEE Connection Factory in JNDI, below is example code which retrieves it and uses it to fire an event into the JAIN SLEE container.</para>
+		<para>The tool installs the SLEE Connection Factory in JNDI. Below is an example code which retrieves JNDI and uses it to fire an event into the JAIN SLEE container.</para>
 		<programlisting language="Java" role="JAVA">
 			<![CDATA[
 	// retrieves JNDI context
