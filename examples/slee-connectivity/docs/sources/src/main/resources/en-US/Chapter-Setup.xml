@@ -10,14 +10,14 @@
 
 	<section id="preinstall_requirements_and_prerequisites">
 		<title>Pre-Install Requirements and Prerequisites</title>
-		<para>Ensure that the following requirements have been met before continuing with the install.</para>
+		<para>Ensure that the following requirements have been met before continuing with the installation.</para>
 		<section id="hardware_requirements">
 			<title>Hardware Requirements</title>
-			<para>The Example doesn't change the &THIS.PLATFORM; JAIN SLEE Hardware Requirements, refer to &THIS.PLATFORM; JAIN SLEE documentation for more information.</para>
+			<para>The Example doesn't change the &THIS.PLATFORM; JAIN SLEE Hardware Requirements. Refer to &THIS.PLATFORM; JAIN SLEE documentation for more information.</para>
 		</section>
 		<section id="software_prerequisites">
 			<title>Software Prerequisites</title>
-			<para>The Example requires &THIS.PLATFORM; JAIN SLEE properly set. In case of using separated JVMs to host the JAva EE and JAIN SLEE applications, the &THIS.PLATFORM; JAIN SLEE Remote SLEE Connection Tool must be deployed in the Java EE server, and properly configured, to be able to interact with the remote JAIN SLEE container.</para>
+			<para>The example in this user guide requires that &THIS.PLATFORM; JAIN SLEE is properly set. In case you are using separated JVMs to host the Java EE and JAIN SLEE applications, the &THIS.PLATFORM; JAIN SLEE Remote SLEE Connection Tool must be deployed in the Java EE server. The remote connection tool must be properly configured so that it can interact with the remote JAIN SLEE container.</para>
 		</section>
 	</section>	
 	
@@ -33,7 +33,7 @@
 				    <important>
 				    	<para>Git is used to manage Mobicents JAIN SLEE source code. Instructions for downloading, installing and using Git can be found at <ulink url="http://git-scm.com/" /></para>
 				    </important>
-				    <para>Use Git to checkout a specific release source, the Git repository URL is https://code.google.com/p/jain-slee.javaee/ , then switch to the specific release version, lets consider &THIS.VERSION;.</para>
+				    <para>Use Git to checkout a specific release source. The Git repository URL is located at https://code.google.com/p/jain-slee.javaee/ . For example, if the release version is  &THIS.VERSION;, you will proceed as follows:</para>
 				    <programlisting>
 				    [usr]$ git clone https://code.google.com/p/jain-slee.javaee mobicents-jain-slee-javaee
 				    [usr]$ cd mobicents-jain-slee-javaee
@@ -45,19 +45,23 @@
 				    <important>
 				    	<para>Maven 2.0.9 (or higher) is used to build the release. Instructions for using Maven2, including install, can be found at <ulink url="http://maven.apache.org" /></para>
 				    </important>
-				    <para>Use Ant to build the binary.</para>
-				    <programlisting>
+				<note>
+					<title>Building the binary </title>
+				    <para>You must use Ant to build the binary.</para>
+				</note>				 
+
+				   <programlisting>
 					[usr]$ cd examples/slee-connectivity
 					[usr]$ mvn install
 				    </programlisting>
-				    <para>Once the process finishes you should have the JAIN SLEE <literal>deployable-unit</literal> jar file in the <filename>slee/du/target</filename> directory, and JMX Client in the javaee/beans/target directory.</para>
+				    <para>Once the process is completed, you should have the JAIN SLEE <literal>deployable-unit</literal> jar file in the <filename>slee/du/target</filename> directory, and JMX Client in the javaee/beans/target directory.</para>
   				</step>
 			</procedure>      
 		</section>	
 		
 		<section id="master_source_building">
 			<title>Development Master Source Building</title>
-			<para>Similar process as for <xref linkend="release_source_building"/>, the only change is the Git reference should be the <literal>master</literal>. The <literal>git checkout tags/&THIS.VERSION;</literal> command should not be performed. If already performed, the following should be used in order to switch back to the master:</para>
+			<para>The procedure is similar to <xref linkend="release_source_building"/>. You must make sure you are in the  <literal>master</literal> branch. The <literal>git checkout tags/&THIS.VERSION;</literal> command should not be performed. Use the following command to check out the master branch:</para>
 		    <programlisting>
 		    [usr]$ git checkout master
 			</programlisting>
@@ -67,17 +71,17 @@
 	
 	<section id="install">
 		<title>Installing &THIS.PLATFORM; JAIN SLEE &THIS.EXAMPLE; Example</title>
-		<para>To install just copy the JMX Client -bean directory to the deploy directory of the JBoss AS5, and the JAIN SLEE deployable unit to the deploy directory of the JAIN SLEE container.</para>
+		<para>Installing the example requires that you copy the JMX Client -bean directory to the deploy directory of the JBoss AS5, and the JAIN SLEE deployable unit to the deploy directory of the JAIN SLEE container.</para>
 	</section>
 	
 	<section id="uninstall">
 		<title>Uninstalling &THIS.PLATFORM; JAIN SLEE &THIS.EXAMPLE; Example</title>
-		<para>To uninstall simply delete the JMX Client -bean directory and JAIN SLEE deployable unit jar copied in the install procedures.</para>
+		<para>To uninstall simply delete the JMX Client -bean directory and JAIN SLEE deployable unit jar created in the install phase.</para>
 	</section>	
 			
 	<section id="remote-javaee-configuration">
 		<title>Configuring the Java EE server to interact with a remote JAIN SLEE</title>
-		<para>In this setup the &THIS.PLATFORM; JAIN SLEE Remote SLEE Connection Tool must be deployed and properly configured, in the Java EE server, please refer to its User Guide for instructions on how to install and configure it.</para> 		
+		<para>You must configure and deploy the &THIS.PLATFORM; JAIN SLEE Remote SLEE Connection Tool in the Java EE server. Please refer to the Java EE server User Guide for instructions on how to install and configure the remote connection tool.</para> 		
 	</section>
 </chapter>
 

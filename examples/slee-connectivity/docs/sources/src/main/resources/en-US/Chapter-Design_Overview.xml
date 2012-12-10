@@ -1,12 +1,17 @@
 <?xml version='1.0'?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [<!ENTITY % BOOK_ENTITIES SYSTEM "JAIN_SLEE_Example_User_Guide.ent">%BOOK_ENTITIES;]>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "JAIN_SLEE_Example_User_Guide.ent">
+%BOOK_ENTITIES;
+]>
 
 <chapter id="design_overview">
 
 	<title>Design Overview</title>
 
-	<para>The &THIS.EXAMPLE;
-		Example is composed by two parts: a JMX Bean to be deployed in a JBoss AS5 instance, the Java EE application which will be used to fire JAIN SLEE event to the JAIN SLEE container; and a JAIN SLEE application, to be deployed in the JAIN SLEE container, which will handle the events fired, printing information about it in the container's console.
+	<para>There are two parts to the &THIS.EXAMPLE;
+		example. </para>
+ <para>The first part is the JMX Bean to be deployed in a JBoss AS5 instance. Within this context, the Java EE application will be used to fire JAIN SLEE events to the JAIN SLEE container </para>
+<para> The second part is the JAIN SLEE application to be deployed in the JAIN SLEE container, which will handle the events fired, printing information about it in the container's console.
 	</para>
 	
 	<section id="design_overview_sbb">
@@ -17,10 +22,10 @@
 		</para>
 		<itemizedlist>
 			<listitem>
-				<para>detach from activity where the event was fired, this will allow the container to end it implicitly, since it becomes unreferenced.</para>
+				<para>The Slee service detaches from the activity where the event was fired. This lets the container end the event as it becomes unreferenced.</para>
 			</listitem>
 			<listitem>
-				<para>log the message contained in the event, which can be seen in the container's console.</para>
+				<para>The Slee service logs the message contained in the event. The message will then become visible in the container's console.</para>
 			</listitem>
 		</itemizedlist>
 	</section>

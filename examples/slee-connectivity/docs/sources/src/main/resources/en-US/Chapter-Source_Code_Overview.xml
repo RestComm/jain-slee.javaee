@@ -1,12 +1,15 @@
 <?xml version='1.0'?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [<!ENTITY % BOOK_ENTITIES SYSTEM "JAIN_SLEE_Example_User_Guide.ent">%BOOK_ENTITIES;]>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "JAIN_SLEE_Example_User_Guide.ent">
+%BOOK_ENTITIES;
+]>
 
 <chapter id="source_code_overview">
 
 	<title>Source Code Overview</title>
 	<important>
 		<para>
-			To obtain the example's complete source code please refer to
+			To obtain the complete source code of this example please refer to
 			<xref linkend="source_code" />.
 		</para>
 	</important>
@@ -15,9 +18,9 @@
 		<title>Source Code Overview: Sbb</title>
 		<note>
 			<para>
-				For full descirption of
+				The sip-wakeup example has more detailed descirption of the
 				<acronym>XML</acronym>
-				please refer to simpler examples, like sip-wakeup
+				and it should be easier to grasp for most users.
 			</para>
 		</note>
 		<para><acronym>SBB</acronym> descriptor is very simple. Its only purpose is to define <acronym>SBB</acronym> abstract class and event handler.
