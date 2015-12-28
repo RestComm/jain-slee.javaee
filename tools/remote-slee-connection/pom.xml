@@ -16,6 +16,10 @@
 	<modules>
 		<module>rar</module>
 	</modules>
+
+	<properties>
+		<mobicents.jain.slee.version>2.8.1</mobicents.jain.slee.version>
+	</properties>
 	
 	<build>
 		<plugins>
