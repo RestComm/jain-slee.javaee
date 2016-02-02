@@ -18,7 +18,7 @@
 			<id>release</id>
 			<build>
 				<!-- make this name pushed into slee-ds.xml via resource filtration -->
-				<finalName>mobicents-slee-remote-connection.rar</finalName>
+				<finalName>restcomm-slee-remote-connection.rar</finalName>
 				<plugins>
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
@@ -32,8 +32,8 @@
 								<configuration>
 									<tasks>
 										<copy todir="${release.dir}/tools/remote-slee-connection">
-											<fileset dir="${basedir}/../rar/target/mobicents-slee-remote-connection.rar-beans">
-												<include name="mobicents-slee-remote-connection.rar/**" />
+											<fileset dir="${basedir}/../rar/target/restcomm-slee-remote-connection.rar-beans">
+												<include name="restcomm-slee-remote-connection.rar/**" />
 											</fileset>
 										</copy>
 									</tasks>

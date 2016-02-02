@@ -8,7 +8,7 @@
 	<property name="jnpHost" value="127.0.0.1" />
 	<property name="jnpPort" value="1099" />
 	<property name="jboss.deploy" value="${jboss.home}/server/${jboss.config}/deploy" />
-	<property name="jmx-breans-dir" value="mobicents-slee-connectivity-example-javaee-beans" />
+	<property name="jmx-breans-dir" value="restcomm-slee-connectivity-example-javaee-beans" />
 	<target name="deploy-jmx">
 		<ant antfile="${home}../../examples/slee-connectivity/du-management.xml" target="deploy-jmx" inheritAll="false">
 			<property name="jboss.home" value="${jboss.home}" />

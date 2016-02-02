@@ -1,31 +1,34 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
-		<groupId>org.mobicents.servers.jainslee.tools</groupId>
-		<artifactId>remote-slee-connection-docs</artifactId>
+		<artifactId>restcomm-slee-connectivity-example-docs</artifactId>
+		<groupId>org.mobicents.examples</groupId>
 		<version>2.8.0-SNAPSHOT</version>
 	</parent>
-	
-	<artifactId>remote-slee-connection-docs-sources-mobicents</artifactId>	
-			
+
+	<artifactId>restcomm-slee-connectivity-example-docs-sources-restcomm</artifactId>
+
 	<properties>
-		<THIS.PLATFORM>Mobicents</THIS.PLATFORM>
+		<THIS.PLATFORM>Restcomm</THIS.PLATFORM>
 		<JEE.PLATFORM>JBoss Application Server</JEE.PLATFORM>
 		<THIS.ISSUE_TRACKER_URL>http://code.google.com/p/jain-slee/issues/list</THIS.ISSUE_TRACKER_URL>
+		<THIS.GIT_SOURCE_CODE_URL>https://code.google.com/p/jain-slee.javaee/</THIS.GIT_SOURCE_CODE_URL>
+		<example.name.jmx.dir>restcomm-slee-connectivity-example-javaee-beans</example.name.jmx.dir>
+		<jca.ra.dir>mobicents.rar</jca.ra.dir>
 		<author.email.eduardo>emmartins (at) gmail.com</author.email.eduardo>
-		<author.email.bartosz>baranowb (at) gmail.com</author.email.bartosz>		
+		<author.email.bartosz>baranowb (at) gmail.com</author.email.bartosz>
 	</properties>
-	
+
 	<build>
 		<resources>
 			<resource>
-        		<directory>${basedir}/src/main/resources</directory>
-        		<filtering>true</filtering>
-      		</resource>
-      	</resources>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -41,13 +44,13 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>${pom.groupId}</groupId>
-									<artifactId>remote-slee-connection-docs-sources</artifactId>
+									<artifactId>restcomm-slee-connectivity-example-docs-sources</artifactId>
 									<version>${pom.version}</version>
 									<type>jar</type>
 									<overWrite>true</overWrite>
 									<outputDirectory>${basedir}/src/main/resources</outputDirectory>
 								</artifactItem>
-							</artifactItems>							
+							</artifactItems>
 						</configuration>
 					</execution>
 				</executions>
@@ -73,5 +76,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>

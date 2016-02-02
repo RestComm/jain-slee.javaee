@@ -3,9 +3,9 @@
           "-//Sun Microsystems, Inc.//DTD Connector 1.0//EN"
           "http://java.sun.com/dtd/connector_1_0.dtd">
           <connector>
-              <display-name>Mobicents JSLEE JCA Adaptor</display-name>
-              <description>JCA Resource Adaptor for connecting to Mobicents JSLEE implementation</description>
-              <vendor-name>Mobicents</vendor-name>
+              <display-name>Restcomm JSLEE JCA Adaptor</display-name>
+              <description>JCA Resource Adaptor for connecting to Restcomm JSLEE implementation</description>
+              <vendor-name>Restcomm</vendor-name>
               <spec-version>1.0</spec-version>
               <eis-type>SLEE</eis-type>
               <version>1.0</version>
@@ -13,7 +13,7 @@
                   <description>
                       ****************************************************
                       *                                                  *
-                      *  Mobicents: The Open Source JSLEE Platform       *
+                      *  Restcomm: The Open Source JSLEE Platform       *
                       *                                                  * 
                       *  Distributable under LGPL license.               *
                       *  See terms of license at gnu.org.                *

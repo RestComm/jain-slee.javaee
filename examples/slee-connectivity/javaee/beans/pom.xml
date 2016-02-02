@@ -3,18 +3,18 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>mobicents-slee-connectivity-example-javaee</artifactId>
+		<artifactId>restcomm-slee-connectivity-example-javaee</artifactId>
 		<groupId>org.mobicents.examples</groupId>
 		<version>2.8.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>mobicents-slee-connectivity-example-javaee-beans</artifactId>
+	<artifactId>restcomm-slee-connectivity-example-javaee-beans</artifactId>
 	
 	<dependencies>
 
 		<dependency>
 			<groupId>${pom.groupId}</groupId>
-			<artifactId>mobicents-slee-connectivity-example-javaee-jar</artifactId>
+			<artifactId>restcomm-slee-connectivity-example-javaee-jar</artifactId>
 			<version>${pom.version}</version>
 		</dependency>
 		<dependency>
@@ -22,7 +22,7 @@
 			<artifactId>jain-slee</artifactId>
 		</dependency>
 		<dependency>
-			<artifactId>mobicents-slee-connectivity-example-event</artifactId>
+			<artifactId>restcomm-slee-connectivity-example-event</artifactId>
 			<groupId>${pom.groupId}</groupId>
 			<version>${pom.version}</version>
 		</dependency>

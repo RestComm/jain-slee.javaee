@@ -3,27 +3,27 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>mobicents-slee-connectivity-example-slee</artifactId>
+		<artifactId>restcomm-slee-connectivity-example-slee</artifactId>
 		<groupId>org.mobicents.examples</groupId>
 		<version>2.8.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>mobicents-slee-connectivity-example-slee-DU</artifactId>
+	<artifactId>restcomm-slee-connectivity-example-slee-DU</artifactId>
 
 
 	<dependencies>
 		<dependency>
-			<artifactId>mobicents-slee-connectivity-example-slee-library</artifactId>
+			<artifactId>restcomm-slee-connectivity-example-slee-library</artifactId>
 			<groupId>${pom.groupId}</groupId>
 			<version>${pom.version}</version>
 		</dependency>
 		<dependency>
-			<artifactId>mobicents-slee-connectivity-example-slee-events</artifactId>
+			<artifactId>restcomm-slee-connectivity-example-slee-events</artifactId>
 			<groupId>${pom.groupId}</groupId>
 			<version>${pom.version}</version>
 		</dependency>
 		<dependency>
-			<artifactId>mobicents-slee-connectivity-example-slee-sbb</artifactId>
+			<artifactId>restcomm-slee-connectivity-example-slee-sbb</artifactId>
 			<groupId>${pom.groupId}</groupId>
 			<version>${pom.version}</version>
 		</dependency>

@@ -17,18 +17,18 @@
 		<dependency>
 			<groupId>org.mobicents.servers.jainslee.core</groupId>
 			<artifactId>remote</artifactId>
-			<version>${mobicents.jain.slee.version}</version>
+			<version>${restcomm.jain.slee.version}</version>
 
 		</dependency>
 		<dependency>
 			<groupId>org.mobicents.servers.jainslee.core</groupId>
 			<artifactId>activities</artifactId>
-			<version>${mobicents.jain.slee.version}</version>
+			<version>${restcomm.jain.slee.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mobicents.servers.jainslee.core</groupId>
 			<artifactId>spi</artifactId>
-			<version>${mobicents.jain.slee.version}</version>
+			<version>${restcomm.jain.slee.version}</version>
 		</dependency>
 
 		<dependency>
@@ -38,7 +38,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>mobicents-slee-remote-connection.rar</finalName>
+		<finalName>restcomm-slee-remote-connection.rar</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>

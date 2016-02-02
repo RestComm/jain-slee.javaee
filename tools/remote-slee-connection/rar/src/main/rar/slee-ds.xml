@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
   <!-- ====================================================================
-    ConnectionManager setup for the Mobicents JCA adapter                
+    ConnectionManager setup for the Restcomm JCA adapter                
     This file activates the adaptor defined in mobicents.rar             
     See the following sources for more information on JCA in JBoss:      
       http://docs.jboss.com/jbossas/admindevel326/html/ch7.chapt.html#ch7.genericjca.sect
@@ -17,7 +17,7 @@
           
           <local-transaction/>
     
-          <rar-name>mobicents-slee-remote-connection.rar</rar-name>
+          <rar-name>restcomm-slee-remote-connection.rar</rar-name>
 
           <connection-definition>javax.slee.connection.SleeConnectionFactory</connection-definition>
 

@@ -31,12 +31,12 @@
 				<step>
 				    <title>Downloading the source code</title>
 				    <important>
-				    	<para>Git is used to manage Mobicents JAIN SLEE source code. Instructions for downloading, installing and using Git can be found at <ulink url="http://git-scm.com/" /></para>
+				    	<para>Git is used to manage Restcomm JAIN SLEE source code. Instructions for downloading, installing and using Git can be found at <ulink url="http://git-scm.com/" /></para>
 				    </important>
 				    <para>Use Git to checkout a specific release source, the Git repository URL is https://code.google.com/p/jain-slee.javaee/ , then switch to the specific release version, lets consider &THIS.VERSION;.</para>
 				    <programlisting>
-				    [usr]$ git clone https://code.google.com/p/jain-slee.javaee mobicents-jain-slee-javaee
-				    [usr]$ cd mobicents-jain-slee-javaee
+				    [usr]$ git clone https://code.google.com/p/jain-slee.javaee restcomm-jain-slee-javaee
+				    [usr]$ cd restcomm-jain-slee-javaee
 				    [usr]$ git checkout tags/&THIS.VERSION;
 					</programlisting>
   				</step>
@@ -50,7 +50,7 @@
 					[usr]$ cd tools/remote-slee-connection
 					[usr]$ mvn install
 				    </programlisting>
-				    <para>Once the process finishes you should have the <literal>JCA</literal> mobicents-slee-remote-connection.rar directory artifact in the <filename>target/mobicents-slee-remote-connection.rar-beans</filename> directory. Deploying the JCA connector depends on the Java EE platform used, in case of &JEE.PLATFORM; simply copy the directory artifact to the platform's deploy directory.</para>
+				    <para>Once the process finishes you should have the <literal>JCA</literal> restcomm-slee-remote-connection.rar directory artifact in the <filename>target/restcomm-slee-remote-connection.rar-beans</filename> directory. Deploying the JCA connector depends on the Java EE platform used, in case of &JEE.PLATFORM; simply copy the directory artifact to the platform's deploy directory.</para>
   				</step>
 			</procedure>      
 		</section>	
@@ -67,13 +67,13 @@
 	
 	<section id="install">
 		<title>Installing &THIS.PLATFORM; Remote SLEE Connection Tool</title>
-		<para>To install the tool to the &JEE.PLATFORM; simply copy the provided <filename>mobicents-slee-remote-connection.rar</filename> directory into the <filename>deploy</filename> directory of the target server profile.</para>
+		<para>To install the tool to the &JEE.PLATFORM; simply copy the provided <filename>restcomm-slee-remote-connection.rar</filename> directory into the <filename>deploy</filename> directory of the target server profile.</para>
 		<para>For other Java EE platforms please refer to its documentation on how to deploy the JCA connector.</para>		
 	</section>
 	
 	<section id="uninstall">
 		<title>Uninstalling &THIS.PLATFORM; Remote SLEE Connection Tool</title>
-		<para>To uninstall the tool from the &JEE.PLATFORM; simply delete the <filename>mobicents-slee-remote-connection.rar</filename> directory from the <filename>deploy</filename> directory of the target server profile.</para>
+		<para>To uninstall the tool from the &JEE.PLATFORM; simply delete the <filename>restcomm-slee-remote-connection.rar</filename> directory from the <filename>deploy</filename> directory of the target server profile.</para>
 		<para>For other Java EE platforms please refer to its documentation on how to undeploy the JCA connector.</para>
 	</section>			
 	
