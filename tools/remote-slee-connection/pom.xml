@@ -16,10 +16,6 @@
 	<modules>
 		<module>rar</module>
 	</modules>
-
-	<properties>
-		<restcomm.jain.slee.version>2.8.25</restcomm.jain.slee.version>
-	</properties>
 	
 	<build>
 		<plugins>
