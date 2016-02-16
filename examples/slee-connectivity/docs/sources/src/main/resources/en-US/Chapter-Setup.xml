@@ -33,9 +33,9 @@
 				    <important>
 				    	<para>Git is used to manage Restcomm JAIN SLEE source code. Instructions for downloading, installing and using Git can be found at <ulink url="http://git-scm.com/" /></para>
 				    </important>
-				    <para>Use Git to checkout a specific release source, the Git repository URL is https://code.google.com/p/jain-slee.javaee/ , then switch to the specific release version, lets consider &THIS.VERSION;.</para>
+				    <para>Use Git to checkout a specific release source, the Git repository URL is https://github.com/RestComm/jain-slee.javaee/ , then switch to the specific release version, lets consider &THIS.VERSION;.</para>
 				    <programlisting>
-				    [usr]$ git clone https://code.google.com/p/jain-slee.javaee restcomm-jain-slee-javaee
+				    [usr]$ git clone https://github.com/RestComm/jain-slee.javaee restcomm-jain-slee-javaee
 				    [usr]$ cd restcomm-jain-slee-javaee
 				    [usr]$ git checkout tags/&THIS.VERSION;
 					</programlisting>
