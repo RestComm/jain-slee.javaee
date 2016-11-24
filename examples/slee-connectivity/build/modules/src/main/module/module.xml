@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.0" name="${module.name}">
+
+    <resources>
+        <resource-root path="jain-slee-${jain-slee.version}.jar"/>
+        <resource-root path="spi-${mobicents.jainslee.version}.jar"/>
+        <resource-root path="restcomm-slee-connectivity-example-event-${pom.version}.jar"/>
+        <resource-root path="restcomm-slee-connectivity-example-javaee-${pom.version}.jar"/>
+    </resources>
+
+    <dependencies>
+        <module name="javax.api"/>
+        <module name="org.apache.log4j"/>
+        <module name="org.jboss.as.naming"/>
+        <module name="org.jboss.logging"/>
+    </dependencies>
+</module>
