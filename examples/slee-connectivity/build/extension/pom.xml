@@ -54,29 +54,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.8.1</version>
-                <configuration>
-                    <!--
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                    <enableAssertions>true</enableAssertions>
-                    <argLine>-Xmx512m</argLine>
-                    <systemProperties>
-                        <property>
-                          <name>jboss.home</name>
-                          <value>${jboss.home}</value>
-                        </property>
-                    </systemProperties>
-                    <includes>
-                        <include>**/*TestCase.java</include>
-                    </includes>
-                    <forkMode>once</forkMode>
-                    -->
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-            <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.2.1</version>
                 <configuration>
@@ -108,24 +85,29 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-controller</artifactId>
+            <groupId>${pom.groupId}</groupId>
+            <artifactId>restcomm-slee-connectivity-example-event</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-server</artifactId>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-controller</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-jmx</artifactId>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-jmx</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-subsystem-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-server</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

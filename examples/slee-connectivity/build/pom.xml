@@ -14,7 +14,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <version.jboss.as>7.2.0.Final</version.jboss.as>
+        <version.wildfly.core>2.2.0.Final</version.wildfly.core>
+
         <version.junit>4.8.2</version.junit>
     </properties>
 
@@ -26,28 +27,22 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.jboss.as</groupId>
-                <artifactId>jboss-as-controller</artifactId>
-                <version>${version.jboss.as}</version>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-controller</artifactId>
+                <version>${version.wildfly.core}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>org.jboss.as</groupId>
-                <artifactId>jboss-as-server</artifactId>
-                <version>${version.jboss.as}</version>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-jmx</artifactId>
+                <version>${version.wildfly.core}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>org.jboss.as</groupId>
-                <artifactId>jboss-as-jmx</artifactId>
-                <version>${version.jboss.as}</version>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-server</artifactId>
+                <version>${version.wildfly.core}</version>
                 <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.as</groupId>
-                <artifactId>jboss-as-subsystem-test</artifactId>
-                <version>${version.jboss.as}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
@@ -59,11 +54,6 @@
             <dependency>
                 <groupId>${pom.groupId}</groupId>
                 <artifactId>restcomm-slee-connectivity-example-event</artifactId>
-                <version>${pom.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${pom.groupId}</groupId>
-                <artifactId>restcomm-slee-connectivity-example-javaee</artifactId>
                 <version>${pom.version}</version>
             </dependency>
         </dependencies>
