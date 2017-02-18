@@ -12,9 +12,11 @@
         <module name="org.jboss.as.server"/>
         <module name="org.jboss.as.jmx"/>
 
+        <module name="org.apache.log4j"/>
         <module name="org.jboss.msc"/>
         <module name="org.jboss.logging"/>
 
+        <module name="org.mobicents.slee.service.events"/>
         <module name="org.mobicents.examples.connectivity.lib"/>
     </dependencies>
 

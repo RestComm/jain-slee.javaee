@@ -16,7 +16,7 @@
 
 	<modules>
 		<module>events-jar</module>
-		<module>javaee-jar</module>
+		<!--<module>javaee-jar</module>-->
 		<module>slee</module>
     	<module>build</module>
 	</modules>
@@ -35,6 +35,21 @@
 				<groupId>org.mobicents.servers.jainslee.core</groupId>
 				<version>${mobicents.jainslee.version}</version>
 				<artifactId>spi</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.mobicents.servers.jainslee.core</groupId>
+				<version>${mobicents.jainslee.version}</version>
+				<artifactId>common</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.mobicents.servers.jainslee.core</groupId>
+				<version>${mobicents.jainslee.version}</version>
+				<artifactId>activities</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.mobicents.servers.jainslee.core</groupId>
+				<version>${mobicents.jainslee.version}</version>
+				<artifactId>remote</artifactId>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

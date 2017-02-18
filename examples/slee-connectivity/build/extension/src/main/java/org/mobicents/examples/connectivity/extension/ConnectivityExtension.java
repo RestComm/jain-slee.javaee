@@ -1,9 +1,6 @@
 package org.mobicents.examples.connectivity.extension;
 
-import org.jboss.as.controller.Extension;
-import org.jboss.as.controller.ExtensionContext;
-import org.jboss.as.controller.PathElement;
-import org.jboss.as.controller.SubsystemRegistration;
+import org.jboss.as.controller.*;
 import org.jboss.as.controller.descriptions.StandardResourceDescriptionResolver;
 import org.jboss.as.controller.operations.common.GenericSubsystemDescribeHandler;
 import org.jboss.as.controller.parsing.ExtensionParsingContext;
@@ -66,7 +63,12 @@ public class ConnectivityExtension implements Extension {
     public void initialize(ExtensionContext context) {
         final SubsystemRegistration subsystem = context.registerSubsystem(SUBSYSTEM_NAME, 1, 0);
         final ManagementResourceRegistration registration = subsystem.registerSubsystemModel(SubsystemDefinition.INSTANCE);
-        registration.registerOperationHandler(DESCRIBE, GenericSubsystemDescribeHandler.INSTANCE, GenericSubsystemDescribeHandler.INSTANCE, false, OperationEntry.EntryType.PRIVATE);
+
+        final OperationDefinition describeOp = new SimpleOperationDefinitionBuilder(DESCRIBE,
+                getResourceDescriptionResolver(null))
+                .setEntryType(OperationEntry.EntryType.PRIVATE)
+                .build();
+        registration.registerOperationHandler(describeOp, GenericSubsystemDescribeHandler.INSTANCE, false);
 
         subsystem.registerXMLElementWriter(parser);
     }

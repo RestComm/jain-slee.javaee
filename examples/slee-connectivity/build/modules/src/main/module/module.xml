@@ -4,8 +4,9 @@
     <resources>
         <resource-root path="jain-slee-${jain-slee.version}.jar"/>
         <resource-root path="spi-${mobicents.jainslee.version}.jar"/>
-        <resource-root path="restcomm-slee-connectivity-example-event-${pom.version}.jar"/>
-        <resource-root path="restcomm-slee-connectivity-example-javaee-${pom.version}.jar"/>
+        <resource-root path="common-${mobicents.jainslee.version}.jar"/>
+        <resource-root path="activities-${mobicents.jainslee.version}.jar"/>
+        <resource-root path="remote-${mobicents.jainslee.version}.jar"/>
     </resources>
 
     <dependencies>

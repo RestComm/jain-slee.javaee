@@ -3,11 +3,10 @@ package org.mobicents.examples.connectivity.extension;
 import org.jboss.logging.Logger;
 import org.jboss.msc.service.*;
 import org.jboss.msc.value.InjectedValue;
-import org.mobicents.example.slee.connection.SleeConnectionTest;
+import org.mobicents.examples.connectivity.connection.SleeConnectionTest;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
-import javax.slee.management.TraceMBean;
 import java.util.LinkedList;
 
 public class ConnectivityService implements Service<ConnectivityService> {
