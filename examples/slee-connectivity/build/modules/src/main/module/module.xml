@@ -3,10 +3,10 @@
 
     <resources>
         <resource-root path="jain-slee-${jain-slee.version}.jar"/>
-        <resource-root path="spi-${mobicents.jainslee.version}.jar"/>
-        <resource-root path="common-${mobicents.jainslee.version}.jar"/>
-        <resource-root path="activities-${mobicents.jainslee.version}.jar"/>
-        <resource-root path="remote-${mobicents.jainslee.version}.jar"/>
+        <resource-root path="spi-${restcomm.jainslee.version}.jar"/>
+        <resource-root path="common-${restcomm.jainslee.version}.jar"/>
+        <resource-root path="activities-${restcomm.jainslee.version}.jar"/>
+        <resource-root path="remote-${restcomm.jainslee.version}.jar"/>
     </resources>
 
     <dependencies>

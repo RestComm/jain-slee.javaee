@@ -26,29 +26,29 @@
 		<docs.example.name>SleeConnectivity</docs.example.name>
 		<docs.example.dirname>slee-connectivity</docs.example.dirname>
 		<docs.bookid>SleeConnectivity</docs.bookid>
-		<mobicents.jainslee.version>3.0.0-SNAPSHOT</mobicents.jainslee.version>
+		<restcomm.jainslee.version>3.0.58</restcomm.jainslee.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.mobicents.servers.jainslee.core</groupId>
-				<version>${mobicents.jainslee.version}</version>
+				<version>${restcomm.jainslee.version}</version>
 				<artifactId>spi</artifactId>
 			</dependency>
 			<dependency>
 				<groupId>org.mobicents.servers.jainslee.core</groupId>
-				<version>${mobicents.jainslee.version}</version>
+				<version>${restcomm.jainslee.version}</version>
 				<artifactId>common</artifactId>
 			</dependency>
 			<dependency>
 				<groupId>org.mobicents.servers.jainslee.core</groupId>
-				<version>${mobicents.jainslee.version}</version>
+				<version>${restcomm.jainslee.version}</version>
 				<artifactId>activities</artifactId>
 			</dependency>
 			<dependency>
 				<groupId>org.mobicents.servers.jainslee.core</groupId>
-				<version>${mobicents.jainslee.version}</version>
+				<version>${restcomm.jainslee.version}</version>
 				<artifactId>remote</artifactId>
 			</dependency>
 		</dependencies>

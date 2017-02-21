@@ -16,8 +16,8 @@
         <module name="org.jboss.msc"/>
         <module name="org.jboss.logging"/>
 
-        <module name="org.mobicents.slee.service.events"/>
-        <module name="org.mobicents.examples.connectivity.lib"/>
+        <module name="org.restcomm.slee.service.events"/>
+        <module name="org.restcomm.examples.connectivity.lib"/>
     </dependencies>
 
 </module>

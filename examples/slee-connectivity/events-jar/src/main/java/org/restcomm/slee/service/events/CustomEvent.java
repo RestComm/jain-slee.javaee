@@ -23,7 +23,7 @@
 /**
  * 
  */
-package org.mobicents.slee.service.events;
+package org.restcomm.slee.service.events;
 
 import java.io.Serializable;
 

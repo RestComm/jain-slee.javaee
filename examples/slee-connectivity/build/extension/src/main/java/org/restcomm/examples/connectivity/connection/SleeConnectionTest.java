@@ -20,11 +20,11 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.mobicents.examples.connectivity.connection;
+package org.restcomm.examples.connectivity.connection;
 
 import org.apache.log4j.Logger;
 import org.mobicents.slee.connector.remote.RemoteSleeConnectionService;
-import org.mobicents.slee.service.events.CustomEvent;
+import org.restcomm.slee.service.events.CustomEvent;
 
 import javax.slee.EventTypeID;
 import javax.slee.connection.ExternalActivityHandle;
@@ -35,11 +35,11 @@ public class SleeConnectionTest implements SleeConnectionTestMBean {
 
 	private static final Logger logger = Logger.getLogger(SleeConnectionTest.class);
 
-	private final static String eventName = "org.mobicents.slee.service.connectivity.Event_1";
-	private final static String eventVendor = "org.mobicents";
+	private final static String eventName = "org.restcomm.slee.service.connectivity.Event_1";
+	private final static String eventVendor = "org.restcomm";
 	private final static String eventVersion = "1.0";
 
-	public final static String OBJECT_NAME = "org.mobicents.slee:type=SleeConnectionTest";
+	public final static String OBJECT_NAME = "org.restcomm.slee:type=SleeConnectionTest";
 
 	private String rmiAddress = "localhost";
 	private int rmiPort = 5555;

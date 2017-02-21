@@ -1,20 +1,19 @@
-package org.mobicents.examples.connectivity.extension;
+package org.restcomm.examples.connectivity.extension;
 
 import org.jboss.logging.Logger;
 import org.jboss.msc.service.*;
 import org.jboss.msc.value.InjectedValue;
-import org.mobicents.examples.connectivity.connection.SleeConnectionTest;
+import org.restcomm.examples.connectivity.connection.SleeConnectionTest;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
-import java.util.LinkedList;
 
 public class ConnectivityService implements Service<ConnectivityService> {
 
     private final Logger log = Logger.getLogger(ConnectivityService.class);
 
     public static ServiceName getServiceName() {
-        return ServiceName.of("mobicents","connectivity");
+        return ServiceName.of("restcomm","slee-connectivity");
     }
 
     private final InjectedValue<MBeanServer> mbeanServer = new InjectedValue<MBeanServer>();

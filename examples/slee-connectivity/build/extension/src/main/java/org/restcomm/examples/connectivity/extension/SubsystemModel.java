@@ -1,4 +1,4 @@
-package org.mobicents.examples.connectivity.extension;
+package org.restcomm.examples.connectivity.extension;
 
 public interface SubsystemModel {
 

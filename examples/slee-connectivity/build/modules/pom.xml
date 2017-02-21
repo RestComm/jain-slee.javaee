@@ -14,8 +14,8 @@
     <name>RestComm SLEE Connectivity Example Modules</name>
 
     <properties>
-        <module.name>org.mobicents.examples.connectivity.lib</module.name>
-        <module.path>org/mobicents/examples/connectivity/lib</module.path>
+        <module.name>org.restcomm.examples.connectivity.lib</module.name>
+        <module.path>org/restcomm/examples/connectivity/lib</module.path>
     </properties>
 
     <dependencies>
@@ -71,7 +71,7 @@
 
     <profiles>
         <profile>
-            <id>deploy-module-as72</id>
+            <id>deploy-module-wildfly</id>
             <build>
                 <plugins>
                     <plugin>

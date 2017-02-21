@@ -20,19 +20,15 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.mobicents.slee.service;
+package org.restcomm.slee.service;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.slee.ActivityContextInterface;
 import javax.slee.CreateException;
 import javax.slee.Sbb;
 import javax.slee.SbbContext;
-import javax.slee.facilities.TimerFacility;
 import javax.slee.facilities.Tracer;
 
-import org.mobicents.slee.service.events.CustomEvent;
+import org.restcomm.slee.service.events.CustomEvent;
 
 /**
  * @author baranowb

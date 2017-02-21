@@ -177,7 +177,7 @@
                                         </replace>
                                         <replace file="${jboss.home}/standalone/configuration/standalone.xml">
                                             <replacetoken><![CDATA[</profile>]]></replacetoken>
-                                            <replacevalue><![CDATA[<subsystem xmlns="urn:mobicents:connectivity:1.0"/>
+                                            <replacevalue><![CDATA[<subsystem xmlns="urn:restcomm:slee-connectivity:1.0"/>
   											</profile>]]></replacevalue>
                                         </replace>
                                     </tasks>
@@ -196,7 +196,7 @@
                                             <replacevalue><![CDATA[]]></replacevalue>
                                         </replace>
                                         <replace file="${jboss.home}/standalone/configuration/standalone.xml">
-                                            <replacetoken><![CDATA[<subsystem xmlns="urn:mobicents:connectivity:1.0"/>]]></replacetoken>
+                                            <replacetoken><![CDATA[<subsystem xmlns="urn:restcomm:slee-connectivity:1.0"/>]]></replacetoken>
                                             <replacevalue><![CDATA[]]></replacevalue>
                                         </replace>
                                     </tasks>

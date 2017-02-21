@@ -1,4 +1,4 @@
-package org.mobicents.examples.connectivity.extension;
+package org.restcomm.examples.connectivity.extension;
 
 import org.jboss.as.controller.*;
 import org.jboss.as.controller.descriptions.StandardResourceDescriptionResolver;
@@ -34,7 +34,7 @@ public class ConnectivityExtension implements Extension {
     /**
      * The name space used for the {@code substystem} element
      */
-    public static final String NAMESPACE = "urn:mobicents:connectivity:1.0";
+    public static final String NAMESPACE = "urn:restcomm:slee-connectivity:1.0";
 
     /**
      * The name of our subsystem within the model.
