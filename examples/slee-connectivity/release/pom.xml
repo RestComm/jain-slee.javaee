@@ -32,13 +32,20 @@
 											<fileset dir="${basedir}/../slee/du/target">
 												<include name="**.jar" />
 											</fileset>
-											<fileset dir="${basedir}/../javaee/beans/target/restcomm-slee-connectivity-example-javaee-beans-beans" />
 										</copy>
+										<!-- SLEE Connectivity Extension -->
+										<copy overwrite="true" todir="${release.dir}/examples/slee-connectivity/extension">
+											<fileset dir="${basedir}/../build/extension/target/module" />
+										</copy>
+										<copy overwrite="true" todir="${release.dir}/examples/slee-connectivity/modules">
+											<fileset dir="${basedir}/../build/modules/target/module" />
+										</copy>
+										<copy file="${basedir}/connectivity-subsystem.txt" todir="${release.dir}/examples/slee-connectivity" />
+
 										<copy overwrite="true" file="${basedir}/../slee/du/target/build.xml" tofile="${release.dir}/examples/slee-connectivity/du-management.xml" />
 										<copy overwrite="true" file="${basedir}/build.xml" todir="${release.dir}/examples/slee-connectivity">
     									<filterset>
     										<filter token="JBOSS.PATH" value="${jboss.path}" />
-                      						<filter token="JBOSS.CONFIG" value="${node}" />
     									</filterset>
     								</copy>
 									</tasks>

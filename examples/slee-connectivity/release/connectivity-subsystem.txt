@@ -1,0 +1,4 @@
+    <subsystem xmlns="urn:mobicents:connectivity:1.0">
+        	<remote-rmi-address>127.0.0.1</remote-rmi-address>
+        	<remote-rmi-port>5555</remote-rmi-port>
+        </subsystem>
