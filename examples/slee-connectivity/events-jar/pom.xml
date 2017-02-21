@@ -9,5 +9,33 @@
 	</parent>
 	
 	<artifactId>restcomm-slee-connectivity-example-event</artifactId>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2.1</version>
+				<configuration>
+					<descriptors>
+						<descriptor>
+							src/main/assemble/descriptor.xml
+						</descriptor>
+					</descriptors>
+					<appendAssemblyId>false</appendAssemblyId>
+					<finalName>module</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 	
 </project>

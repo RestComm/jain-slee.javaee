@@ -6,6 +6,7 @@
 	<property name="jboss.deploy" value="${jboss.home}/standalone/deployments" />
 
 	<property name="jboss.modules.path" value="${jboss.home}/modules/system/layers/base" />
+	<property name="slee-service-events.path" value="${jboss.modules.path}/org/restcomm/slee/service/events" />
 	<property name="slee-connectivity.path" value="${jboss.modules.path}/org/restcomm/example/connectivity" />
 
 	<target name="deploy">
@@ -13,13 +14,18 @@
 			<property name="jboss.home" value="${jboss.home}" />
 		</ant>
 
+		<!-- Deploy SLEE Service Events -->
+		<copy overwrite="true" todir="${slee-service-events.path}">
+			<fileset dir=".">
+				<include name="events/**" />
+			</fileset>
+		</copy>
+
 		<!-- Deploy SLEE Connectivity Extension -->
 		<copy overwrite="true" todir="${slee-connectivity.path}">
-			<fileset dir="./extension">
-				<include name="**" />
-			</fileset>
-			<fileset dir="./modules">
-				<include name="**" />
+			<fileset dir=".">
+				<include name="extension/**" />
+				<include name="modules/**" />
 			</fileset>
 		</copy>
 

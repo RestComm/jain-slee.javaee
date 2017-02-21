@@ -33,6 +33,16 @@
 												<include name="**.jar" />
 											</fileset>
 										</copy>
+
+										<copy overwrite="true" todir="${release.dir}/examples/slee-connectivity/events">
+											<fileset dir="${basedir}/../events-jar/target/module" />
+										</copy>
+										<copy overwrite="true" todir="${release.dir}/examples/slee-connectivity/events/main">
+											<fileset dir="${basedir}/../events-jar/target">
+												<include name="**.jar" />
+											</fileset>
+										</copy>
+
 										<!-- SLEE Connectivity Extension -->
 										<copy overwrite="true" todir="${release.dir}/examples/slee-connectivity/extension">
 											<fileset dir="${basedir}/../build/extension/target/module" />
