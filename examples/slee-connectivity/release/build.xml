@@ -50,7 +50,13 @@
 			<property name="jboss.home" value="${jboss.home}" />
 		</ant>
 		<!-- Undeploy SLEE Connectivity Extension -->
+		<delete dir="${slee-service-events.path}" />
 		<delete dir="${slee-connectivity.path}" />
+
+		<replace file="${jboss.home}/standalone/configuration/standalone.xml">
+			<replacetoken><![CDATA[<extension module="org.restcomm.example.connectivity.extension"/>]]></replacetoken>
+			<replacevalue><![CDATA[]]></replacevalue>
+		</replace>
 	</target>
 
 </project>
