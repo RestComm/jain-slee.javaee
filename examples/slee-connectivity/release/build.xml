@@ -8,19 +8,19 @@
 	<property name="jboss.modules.path" value="${jboss.home}/modules/system/layers/base" />
 	<property name="slee-connectivity.path" value="${jboss.modules.path}/org/restcomm/example/connectivity" />
 
-	<property name="jmx-beans-dir" value="restcomm-slee-connectivity-example-javaee-beans" />
-
 	<target name="deploy">
 		<ant antfile="${home}../../examples/slee-connectivity/du-management.xml" target="deploy" inheritAll="false">
 			<property name="jboss.home" value="${jboss.home}" />
 		</ant>
-		<!--
-		<copy overwrite="true" todir="${jboss.deploy}">
-			<fileset dir="${home}../../examples/slee-connectivity" includes="${jmx-breans-dir}/**" />
-		</copy>
-		-->
+
 		<!-- Deploy SLEE Connectivity Extension -->
 		<copy overwrite="true" todir="${slee-connectivity.path}">
+			<fileset dir="./extension">
+				<include name="**" />
+			</fileset>
+			<fileset dir="./modules">
+				<include name="**" />
+			</fileset>
 		</copy>
 
 		<!-- Update WildFly configuration with adding jSS7 Extension and Subsystem -->
@@ -43,9 +43,8 @@
 		<ant antfile="${home}../../examples/slee-connectivity/du-management.xml" target="undeploy" inheritAll="false">
 			<property name="jboss.home" value="${jboss.home}" />
 		</ant>
-		<!--<delete dir="${jboss.deploy}/${jmx-breans-dir}" />-->
 		<!-- Undeploy SLEE Connectivity Extension -->
-
+		<delete dir="${slee-connectivity.path}" />
 	</target>
 
 </project>
