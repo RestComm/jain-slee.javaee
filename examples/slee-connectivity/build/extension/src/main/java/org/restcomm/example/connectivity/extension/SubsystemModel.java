@@ -1,4 +1,4 @@
-package org.restcomm.examples.connectivity.extension;
+package org.restcomm.example.connectivity.extension;
 
 public interface SubsystemModel {
 

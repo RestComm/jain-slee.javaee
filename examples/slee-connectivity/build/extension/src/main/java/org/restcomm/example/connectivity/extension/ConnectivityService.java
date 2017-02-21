@@ -1,9 +1,9 @@
-package org.restcomm.examples.connectivity.extension;
+package org.restcomm.example.connectivity.extension;
 
 import org.jboss.logging.Logger;
 import org.jboss.msc.service.*;
 import org.jboss.msc.value.InjectedValue;
-import org.restcomm.examples.connectivity.connection.SleeConnectionTest;
+import org.restcomm.example.connectivity.connection.SleeConnectionTest;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectName;

@@ -6,7 +6,7 @@
 	<property name="jboss.deploy" value="${jboss.home}/standalone/deployments" />
 
 	<property name="jboss.modules.path" value="${jboss.home}/modules/system/layers/base" />
-	<property name="slee-connectivity.path" value="${jboss.modules.path}/org/mobicents/examples/connectivity" />
+	<property name="slee-connectivity.path" value="${jboss.modules.path}/org/restcomm/example/connectivity" />
 
 	<property name="jmx-beans-dir" value="restcomm-slee-connectivity-example-javaee-beans" />
 
@@ -26,7 +26,7 @@
 		<!-- Update WildFly configuration with adding jSS7 Extension and Subsystem -->
 		<replace file="${jboss.home}/standalone/configuration/standalone.xml">
 			<replacetoken><![CDATA[</extensions>]]></replacetoken>
-			<replacevalue><![CDATA[    <extension module="org.mobicents.examples.connectivity.extension"/>
+			<replacevalue><![CDATA[    <extension module="org.restcomm.example.connectivity.extension"/>
 	</extensions>]]></replacevalue>
 		</replace>
 

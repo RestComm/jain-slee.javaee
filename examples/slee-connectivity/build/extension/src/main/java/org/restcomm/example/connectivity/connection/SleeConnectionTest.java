@@ -20,7 +20,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-package org.restcomm.examples.connectivity.connection;
+package org.restcomm.example.connectivity.connection;
 
 import org.apache.log4j.Logger;
 import org.mobicents.slee.connector.remote.RemoteSleeConnectionService;

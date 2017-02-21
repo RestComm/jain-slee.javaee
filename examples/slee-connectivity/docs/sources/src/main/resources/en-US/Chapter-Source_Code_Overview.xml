@@ -27,7 +27,7 @@
 		Abstract class is defined as follows:</para>
 		<programlisting language="XML" role="XML"><![CDATA[
 		<sbb-name>SleeConnectivitySbb</sbb-name>
-		<sbb-vendor>org.mobicents</sbb-vendor>
+		<sbb-vendor>org.restcomm</sbb-vendor>
 		<sbb-version>1.0</sbb-version>
 
 		<sbb-classes>
@@ -46,8 +46,8 @@
 		<event event-direction="Receive" initial-event="True">
 			<event-name>CustomEvent</event-name>
 			<event-type-ref>
-				<event-type-name>org.mobicents.slee.service.connectivity.Event_1</event-type-name>
-				<event-type-vendor>org.mobicents</event-type-vendor>
+				<event-type-name>org.restcomm.slee.service.connectivity.Event_1</event-type-name>
+				<event-type-vendor>org.restcomm</event-type-vendor>
 				<event-type-version>1.0</event-type-version>
 			</event-type-ref>
 			<initial-event-select variable="ActivityContext" />
@@ -57,73 +57,24 @@
 	</section>
 	<section id="source_code_overview_jmx">
 		<title>Source Code Overview: JMX Client</title>
-		<para><acronym>JMX</acronym> Client is defined by two elements: <acronym>XML</acronym> descriptor and <acronym>POJO</acronym> class.</para>
-		<para><acronym>XML</acronym> descriptor is very simple. It looks as follows(<filename>jboss-beans.xml</filename>): </para>
-		<programlisting language="XML" role="XML"><![CDATA[
-<?xml version="1.0" encoding="UTF-8"?>
+		<para><acronym>JMX</acronym> Client is defined by <acronym>POJO</acronym> class.</para>
 
-<deployment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="urn:jboss:bean-deployer:2.0">
+		<para>Client contract is defined by implemented interface class, that is <literal>org.restcomm.example.slee.connection.SleeConnectionTestMBean</literal> </para>
+		<variablelist>
+			<varlistentry>
+				<term>public void fireEvent(String message);</term>
+				<listitem>
+					<para>Fires event using to JAIN SLEE container. The event will contain the specified message parameter.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 
-	<bean name="SleeConnectionTest"
-		class="org.mobicents.example.slee.connection.SleeConnectionTest">
-		<annotation>@org.jboss.aop.microcontainer.aspects.jmx.JMX(
-			name="org.mobicents.slee:name=SleeConnectivityExample",exposedInterface=
-			org.mobicents.example.slee.connection.SleeConnectionTestMBean.class
-				,registerDirectly=true)
-		</annotation>		
-	</bean>
-
-</deployment>
-		]]>
-			</programlisting>
-			<para>Descriptor has following elements present: </para>
-			<variablelist>
-				<varlistentry>
-					<term>bean</term>
-					<listitem>
-						<para> definition of <acronym>POJO</acronym> bean with human readable name and class</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>annotation</term>
-					<listitem>
-						<para>marks <acronym>POJO</acronym> as <acronym>JMX</acronym> exposed bean</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>property</term>
-					<listitem>
-						<para>sets value of java bean property with matching name </para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>demand</term>
-					<listitem>
-						<para>creates requirement - bean with name passed in this tag must be present for declared bean to be deployed</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
-			
-			<para>Client contract is defined by implemented interface class, that is <literal>org.mobicents.example.slee.connection.SleeConnectionTestMBean</literal> </para>
-			<variablelist>
-				<varlistentry>
-					<term>public void fireEvent(String message);</term>
-					<listitem>
-						<para>Fires event using to JAIN SLEE container. The event will contain the specified message parameter.</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
-			
-			<para>Concrete implementation can be found in <literal>org.mobicents.example.slee.connection.SleeConnectionTest</literal> class.</para>
-			<programlisting role="JAVA" language="Java">
+		<para>Concrete implementation can be found in <literal>org.restcomm.example.slee.connection.SleeConnectionTest</literal> class.</para>
+		<programlisting role="JAVA" language="Java">
 			
 		public void fireEvent(String messagePassed) {
 
-		// depending on deployment it does following:
-		// 1. lookup RA and make RMI calls through it
-		// 2. lookup local Bean, which makes direct calls to container!
-		logger.info("Attempting call to SleeConnectionFactory.");
+		logger.info("Attempting call to RemoteSleeConnectionService.");
 		try {
 
 			InitialContext ic = new InitialContext();
@@ -149,6 +100,25 @@
 				if (conn1 != null)
 					conn1.close();
 			}
+
+			// get local or remote RMI registry on rmiAddress:rmiPort
+			Registry registry = LocateRegistry.getRegistry(this.rmiAddress, this.rmiPort);
+
+			// get RMI stup throw lookup
+			RemoteSleeConnectionService rmiStub =
+				(RemoteSleeConnectionService) registry.lookup("RemoteSleeConnectionService");
+
+			// create activity handle
+			ExternalActivityHandle handle = rmiStub.createActivityHandle();
+
+			// get event type
+			EventTypeID requestType = rmiStub.getEventTypeID(eventName, eventVendor, eventVersion);
+
+			CustomEvent customEvent = new CustomEvent();
+			customEvent.setMessage(messagePassed);
+			logger.info("The event type is: " + requestType);
+
+			rmiStub.fireEvent(customEvent, requestType, handle, null);
 
 		} catch (Exception e) {
 			logger.error("Exception caught in event fire method!", e);
