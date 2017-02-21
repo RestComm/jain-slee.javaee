@@ -2,10 +2,7 @@ package org.mobicents.examples.connectivity.extension;
 
 import java.util.List;
 
-import org.jboss.as.controller.AbstractBoottimeAddStepHandler;
-import org.jboss.as.controller.OperationContext;
-import org.jboss.as.controller.OperationFailedException;
-import org.jboss.as.controller.ServiceVerificationHandler;
+import org.jboss.as.controller.*;
 import org.jboss.as.jmx.MBeanServerService;
 import org.jboss.dmr.ModelNode;
 import org.jboss.logging.Logger;
@@ -33,7 +30,9 @@ class SubsystemAdd extends AbstractBoottimeAddStepHandler {
     @Override
     protected void populateModel(ModelNode operation, ModelNode model) throws OperationFailedException {
         log.info("Populating the model");
-        model.setEmptyObject();
+        for (AttributeDefinition ad : SubsystemDefinition.ATTRIBUTES) {
+            ad.validateAndSet(operation, model);
+        }
     }
 
     /** {@inheritDoc} */
@@ -44,7 +43,13 @@ class SubsystemAdd extends AbstractBoottimeAddStepHandler {
 
         // Install service with MBean SleeConnectionTest
 
-        ConnectivityService service = new ConnectivityService();
+        final ModelNode rmiAddressModel = SubsystemDefinition.REMOTE_RMI_ADDRESS.resolveModelAttribute(context, model);
+        final String rmiAddress = rmiAddressModel.isDefined() ? rmiAddressModel.asString() : "localhost";
+
+        final ModelNode rmiPortModel = SubsystemDefinition.REMOTE_RMI_PORT.resolveModelAttribute(context, model);
+        final int rmiPort = rmiPortModel.isDefined() ? rmiPortModel.asInt() : 5555;
+
+        ConnectivityService service = new ConnectivityService(rmiAddress, rmiPort);
         ServiceName name = ConnectivityService.getServiceName();
         ServiceController<ConnectivityService> controller = context.getServiceTarget()
                 .addService(name, service)

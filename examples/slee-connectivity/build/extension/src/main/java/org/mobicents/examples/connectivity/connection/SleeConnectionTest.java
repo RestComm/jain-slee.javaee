@@ -41,10 +41,19 @@ public class SleeConnectionTest implements SleeConnectionTestMBean {
 
 	public final static String OBJECT_NAME = "org.mobicents.slee:type=SleeConnectionTest";
 
+	private String rmiAddress = "localhost";
+	private int rmiPort = 5555;
+
+	public SleeConnectionTest(String rmiAddress, int rmiPort) {
+		this.rmiAddress = rmiAddress;
+		this.rmiPort = rmiPort;
+	}
+
 	public void fireEvent(String messagePassed) {
 		logger.info("Attempting call to RemoteSleeConnectionService.");
 		try {
-			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 5555);
+			Registry registry = LocateRegistry.getRegistry(this.rmiAddress, this.rmiPort);
+			logger.info("rmiAddress is: " + this.rmiAddress + " and rmiPort is: " + this.rmiPort);
 
 			RemoteSleeConnectionService rmiStub =
 					(RemoteSleeConnectionService) registry.lookup("RemoteSleeConnectionService");

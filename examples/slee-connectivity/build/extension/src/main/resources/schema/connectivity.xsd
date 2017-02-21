@@ -9,5 +9,9 @@
     <xs:element name="subsystem" type="subsystemType"/>
 
     <xs:complexType name="subsystemType">
+        <xs:sequence>
+            <xs:element name="remote-rmi-address" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="remote-rmi-port" type="xs:int" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
     </xs:complexType>
 </xs:schema>

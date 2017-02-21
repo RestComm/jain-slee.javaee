@@ -16,6 +16,7 @@ import org.jboss.staxmapper.XMLExtendedStreamWriter;
 
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
+import java.util.EnumSet;
 import java.util.List;
 
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.ADD;
@@ -58,7 +59,6 @@ public class ConnectivityExtension implements Extension {
         context.setSubsystemXmlMapping(SUBSYSTEM_NAME, NAMESPACE, parser);
     }
 
-
     @Override
     public void initialize(ExtensionContext context) {
         final SubsystemRegistration subsystem = context.registerSubsystem(SUBSYSTEM_NAME, 1, 0);
@@ -73,13 +73,6 @@ public class ConnectivityExtension implements Extension {
         subsystem.registerXMLElementWriter(parser);
     }
 
-    private static ModelNode createAddSubsystemOperation() {
-        final ModelNode subsystem = new ModelNode();
-        subsystem.get(OP).set(ADD);
-        subsystem.get(OP_ADDR).add(SUBSYSTEM, SUBSYSTEM_NAME);
-        return subsystem;
-    }
-
     /**
      * The subsystem parser, which uses stax to read and write to and from xml
      */
@@ -91,6 +84,11 @@ public class ConnectivityExtension implements Extension {
         @Override
         public void writeContent(XMLExtendedStreamWriter writer, SubsystemMarshallingContext context) throws XMLStreamException {
             context.startSubsystemElement(ConnectivityExtension.NAMESPACE, false);
+
+            final ModelNode javaeeSubsystem = context.getModelNode();
+            SubsystemDefinition.REMOTE_RMI_ADDRESS.marshallAsElement(javaeeSubsystem, writer);
+            SubsystemDefinition.REMOTE_RMI_PORT.marshallAsElement(javaeeSubsystem, writer);
+
             writer.writeEndElement();
         }
 
@@ -99,10 +97,67 @@ public class ConnectivityExtension implements Extension {
          */
         @Override
         public void readElement(XMLExtendedStreamReader reader, List<ModelNode> list) throws XMLStreamException {
-            // Require no content
-            ParseUtils.requireNoContent(reader);
-            list.add(createAddSubsystemOperation());
+            ParseUtils.requireNoAttributes(reader);
+
+            final ModelNode address = new ModelNode();
+            address.add(SUBSYSTEM, ConnectivityExtension.SUBSYSTEM_NAME);
+            address.protect();
+
+            final ModelNode subsystem = new ModelNode();
+            subsystem.get(OP).set(ADD);
+            subsystem.get(OP_ADDR).set(address);
+            list.add(subsystem);
+
+            // elements
+            final EnumSet<Element> encountered = EnumSet.noneOf(Element.class);
+            while (reader.hasNext() && reader.nextTag() != END_ELEMENT) {
+                final Element element = Element.forName(reader.getLocalName());
+                if (!encountered.add(element)) {
+                    throw ParseUtils.unexpectedElement(reader);
+                }
+                switch (element) {
+                    case REMOTE_RMI_ADDRESS: {
+                        final String value = parseRemoteRmiAddress(reader);
+                        SubsystemDefinition.REMOTE_RMI_ADDRESS.parseAndSetParameter(value, subsystem, reader);
+                        break;
+                    }
+                    case REMOTE_RMI_PORT: {
+                        final String value = parseRemoteRmiPort(reader);
+                        SubsystemDefinition.REMOTE_RMI_PORT.parseAndSetParameter(value, subsystem, reader);
+                        break;
+                    }
+                    default: {
+                        throw ParseUtils.unexpectedElement(reader);
+                    }
+                }
+            }
         }
+    }
+
+    static String parseRemoteRmiAddress(XMLExtendedStreamReader reader) throws XMLStreamException {
+        // we don't expect any attributes for this element.
+        ParseUtils.requireNoAttributes(reader);
+
+        final String value = reader.getElementText();
+        if (value == null || value.trim().isEmpty()) {
+            throw new XMLStreamException(
+                    "Invalid value: " + value + " for '" + Element.REMOTE_RMI_ADDRESS.getLocalName() + "' element",
+                    reader.getLocation());
+        }
+        return value.trim();
+    }
+
+    static String parseRemoteRmiPort(XMLExtendedStreamReader reader) throws XMLStreamException {
+        // we don't expect any attributes for this element.
+        ParseUtils.requireNoAttributes(reader);
+
+        final String value = reader.getElementText();
+        if (value == null || value.trim().isEmpty()) {
+            throw new XMLStreamException(
+                    "Invalid value: " + value + " for '" + Element.REMOTE_RMI_PORT.getLocalName() + "' element",
+                    reader.getLocation());
+        }
+        return value.trim();
     }
 
 }

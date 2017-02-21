@@ -17,10 +17,17 @@ public class ConnectivityService implements Service<ConnectivityService> {
         return ServiceName.of("mobicents","connectivity");
     }
 
-    private final LinkedList<String> registeredMBeans = new LinkedList<String>();
     private final InjectedValue<MBeanServer> mbeanServer = new InjectedValue<MBeanServer>();
     public InjectedValue<MBeanServer> getMbeanServer() {
         return mbeanServer;
+    }
+
+    private String rmiAddress = "localhost";
+    private int rmiPort = 5555;
+
+    public ConnectivityService(String rmiAddress, int rmiPort) {
+        this.rmiAddress = rmiAddress;
+        this.rmiPort = rmiPort;
     }
 
     @Override
@@ -32,7 +39,7 @@ public class ConnectivityService implements Service<ConnectivityService> {
     public void start(StartContext context) throws StartException {
         log.info("Starting ConnectivityService");
 
-        final SleeConnectionTest connectionTest = new SleeConnectionTest();
+        final SleeConnectionTest connectionTest = new SleeConnectionTest(this.rmiAddress, this.rmiPort);
         registerMBean(connectionTest, SleeConnectionTest.OBJECT_NAME);
     }
 
