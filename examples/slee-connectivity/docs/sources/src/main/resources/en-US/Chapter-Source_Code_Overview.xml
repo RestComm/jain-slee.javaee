@@ -76,31 +76,6 @@
 
 		logger.info("Attempting call to RemoteSleeConnectionService.");
 		try {
-
-			InitialContext ic = new InitialContext();
-			// this is call to local JNDI space, private, it cant be accessed
-			// from other JVM
-			SleeConnectionFactory factory = (SleeConnectionFactory) ic
-					.lookup("java:/MobicentsConnectionFactory");
-
-			SleeConnection conn1 = null;
-			try {
-				conn1 = factory.getConnection();
-
-				ExternalActivityHandle handle = conn1.createActivityHandle();
-
-				EventTypeID requestType = conn1.getEventTypeID(eventName,
-						eventVendor, eventVersion);
-				CustomEvent customEvent = new CustomEvent();
-				customEvent.setMessage(messagePassed);
-				logger.info("The event type is: " + requestType);
-
-				conn1.fireEvent(customEvent, requestType, handle, null);
-			} finally {
-				if (conn1 != null)
-					conn1.close();
-			}
-
 			// get local or remote RMI registry on rmiAddress:rmiPort
 			Registry registry = LocateRegistry.getRegistry(this.rmiAddress, this.rmiPort);
 
