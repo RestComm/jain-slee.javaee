@@ -1,12 +1,15 @@
 <?xml version='1.0'?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [<!ENTITY % BOOK_ENTITIES SYSTEM "JAIN_SLEE_Example_User_Guide.ent">%BOOK_ENTITIES;]>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "JAIN_SLEE_Example_User_Guide.ent">
+%BOOK_ENTITIES;
+]>
 
 <chapter id="design_overview">
 
 	<title>Design Overview</title>
 
 	<para>The &THIS.EXAMPLE;
-		Example is composed by two parts: a JMX Bean to be deployed in a JBoss AS5 instance, the Java EE application which will be used to fire JAIN SLEE event to the JAIN SLEE container; and a JAIN SLEE application, to be deployed in the JAIN SLEE container, which will handle the events fired, printing information about it in the container's console.
+		Example is composed by two parts: a JMX Bean to be registered by SleeConnectivity extension in a WildFly 10 instance, the Java EE application which will be used to fire JAIN SLEE event to the JAIN SLEE container; and a JAIN SLEE application, to be deployed in the JAIN SLEE container, which will handle the events fired, printing information about it in the container's console.
 	</para>
 	
 	<section id="design_overview_sbb">
@@ -42,7 +45,7 @@
 				<listitem>
 					<para>
 						<acronym>JMX</acronym> Bean and	<acronym>JAIN SLEE</acronym> run in the same
-						<acronym>JVM</acronym>. In this case both parts are deployed in same JBoss AS, and no additional tools are needed. 						 
+						<acronym>JVM</acronym>. In this case both parts are deployed in same WildFly server.
 					</para>
 					<mediaobject>
 						<imageobject>
@@ -63,7 +66,7 @@
 				<term>separate</term>
 				<listitem>
 					<para>
-						In this case <acronym>JMX</acronym> Client and <acronym>JSLEE</acronym> container run in different <acronym>JVM</acronym>s. The &THIS.PLATFORM; JAIN SLEE Remote SLEE Connection Tool, which uses JCA, must be deployed in the Java EE container.
+						In this case <acronym>JMX</acronym> Client and <acronym>JSLEE</acronym> container run in different <acronym>JVM</acronym>s.
 					</para>
 				</listitem>
 			</varlistentry>

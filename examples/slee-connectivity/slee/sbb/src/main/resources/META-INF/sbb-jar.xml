@@ -6,13 +6,13 @@
 
 	<sbb id="Connection-sbb">
 		<sbb-name>SleeConnectivitySbb</sbb-name>
-		<sbb-vendor>org.mobicents</sbb-vendor>
+		<sbb-vendor>org.restcomm</sbb-vendor>
 		<sbb-version>1.0</sbb-version>
 
 		<sbb-classes>
 			<sbb-abstract-class>
 				<sbb-abstract-class-name>
-					org.mobicents.slee.service.SleeConnectivitySbb
+					org.restcomm.slee.service.SleeConnectivitySbb
 				</sbb-abstract-class-name>
 				<!--
 					<cmp-field> <cmp-field-name></cmp-field-name> </cmp-field>
@@ -24,8 +24,8 @@
 		<event event-direction="Receive" initial-event="True">
 			<event-name>CustomEvent</event-name>
 			<event-type-ref>
-				<event-type-name>org.mobicents.slee.service.connectivity.Event_1</event-type-name>
-				<event-type-vendor>org.mobicents</event-type-vendor>
+				<event-type-name>org.restcomm.slee.service.connectivity.Event_1</event-type-name>
+				<event-type-vendor>org.restcomm</event-type-vendor>
 				<event-type-version>1.0</event-type-version>
 			</event-type-ref>
 			<initial-event-select variable="ActivityContext" />

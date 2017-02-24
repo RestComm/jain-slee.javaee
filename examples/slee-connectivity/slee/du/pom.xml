@@ -5,18 +5,13 @@
 	<parent>
 		<artifactId>restcomm-slee-connectivity-example-slee</artifactId>
 		<groupId>org.mobicents.examples</groupId>
-		<version>2.8.0-SNAPSHOT</version>
+		<version>7.0.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>restcomm-slee-connectivity-example-slee-DU</artifactId>
 
 
 	<dependencies>
-		<dependency>
-			<artifactId>restcomm-slee-connectivity-example-slee-library</artifactId>
-			<groupId>${pom.groupId}</groupId>
-			<version>${pom.version}</version>
-		</dependency>
 		<dependency>
 			<artifactId>restcomm-slee-connectivity-example-slee-events</artifactId>
 			<groupId>${pom.groupId}</groupId>
@@ -34,6 +29,7 @@
 			<plugin>
 				<groupId>org.mobicents.tools</groupId>
 				<artifactId>maven-du-plugin</artifactId>
+				<version>4.0.2</version>
 				<executions>
 					<execution>
 						<goals>

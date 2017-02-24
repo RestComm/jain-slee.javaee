@@ -67,17 +67,29 @@
 	
 	<section id="install">
 		<title>Installing &THIS.PLATFORM; JAIN SLEE &THIS.EXAMPLE; Example</title>
-		<para>To install just copy the JMX Client -bean directory to the deploy directory of the JBoss AS5, and the JAIN SLEE deployable unit to the deploy directory of the JAIN SLEE container.</para>
+		<para>To install SleeConnectivity extension with Events module just execute <literal>ant deploy</literal>, and the JAIN SLEE deployable unit to the deploy directory of the JAIN SLEE container.</para>
 	</section>
 	
 	<section id="uninstall">
 		<title>Uninstalling &THIS.PLATFORM; JAIN SLEE &THIS.EXAMPLE; Example</title>
-		<para>To uninstall simply delete the JMX Client -bean directory and JAIN SLEE deployable unit jar copied in the install procedures.</para>
+		<para>To uninstall simply execute <literal>ant undeploy</literal> and delete JAIN SLEE deployable unit jar copied in the install procedures.</para>
 	</section>	
 			
 	<section id="remote-javaee-configuration">
 		<title>Configuring the Java EE server to interact with a remote JAIN SLEE</title>
-		<para>In this setup the &THIS.PLATFORM; JAIN SLEE Remote SLEE Connection Tool must be deployed and properly configured, in the Java EE server, please refer to its User Guide for instructions on how to install and configure it.</para> 		
+		<para>SleeConnectivity extension has two parameters which you can configure throw subsystem configuration in standalone.xml.</para>
+
+		<programlisting>
+			<![CDATA[
+			<subsystem xmlns="urn:restcomm:slee-connectivity:1.0">
+				<remote-rmi-address>127.0.0.1</remote-rmi-address>
+				<remote-rmi-port>5555</remote-rmi-port>
+			</subsystem>
+			]]>
+		</programlisting>
+
+		<para>With remote-rmi-address and remote-rmi-port parameters you can configure IP/Hostname of Remote WildFly with JAIN SLEE container and port of Remote RMI Registry.</para>
+
 	</section>
 </chapter>
 
