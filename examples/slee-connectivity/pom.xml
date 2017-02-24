@@ -26,7 +26,7 @@
 		<docs.example.name>SleeConnectivity</docs.example.name>
 		<docs.example.dirname>slee-connectivity</docs.example.dirname>
 		<docs.bookid>SleeConnectivity</docs.bookid>
-		<restcomm.jainslee.version>3.0.58</restcomm.jainslee.version>
+		<restcomm.jainslee.version>7.0.0-SNAPSHOT</restcomm.jainslee.version>
 	</properties>
 
 	<dependencyManagement>
