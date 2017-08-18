@@ -36,8 +36,8 @@
     <packaging>jar</packaging>
     
     <properties>
-        <module.name>org.mobicents.examples.connectivity.extension</module.name>
-        <module.path>org/mobicents/examples/connectivity/extension</module.path>
+        <module.name>org.restcomm.examples.connectivity.extension</module.name>
+        <module.path>org/restcomm/examples/connectivity/extension</module.path>
     </properties>
 
     <build>
@@ -172,7 +172,7 @@
                                     <tasks>
                                         <replace file="${jboss.home}/standalone/configuration/standalone.xml">
                                             <replacetoken><![CDATA[</extensions>]]></replacetoken>
-                                            <replacevalue><![CDATA[<extension module="org.mobicents.examples.connectivity.extension"/>
+                                            <replacevalue><![CDATA[<extension module="org.restcomm.examples.connectivity.extension"/>
   											</extensions>]]></replacevalue>
                                         </replace>
                                         <replace file="${jboss.home}/standalone/configuration/standalone.xml">
@@ -192,7 +192,7 @@
                                 <configuration>
                                     <tasks>
                                         <replace file="${jboss.home}/standalone/configuration/standalone.xml">
-                                            <replacetoken><![CDATA[<extension module="org.mobicents.examples.connectivity.extension"/>]]></replacetoken>
+                                            <replacetoken><![CDATA[<extension module="org.restcomm.examples.connectivity.extension"/>]]></replacetoken>
                                             <replacevalue><![CDATA[]]></replacevalue>
                                         </replace>
                                         <replace file="${jboss.home}/standalone/configuration/standalone.xml">

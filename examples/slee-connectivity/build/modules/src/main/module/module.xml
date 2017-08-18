@@ -8,7 +8,7 @@
         <resource-root path="activities-${restcomm.jainslee.version}.jar"/>
         <resource-root path="remote-${restcomm.jainslee.version}.jar"/>
     </resources>
-
+    
     <dependencies>
         <module name="javax.api"/>
         <module name="org.apache.log4j"/>

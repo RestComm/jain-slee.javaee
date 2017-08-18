@@ -1,62 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="Release_build" default="deploy">
+<project name="Release_build" default="deploy-colocated">
 
-	<property name="home" value="${ant.file.Release_build}/../" />
-	<property name="jboss.home" value="${home}/@JBOSS.PATH@/" />
-	<property name="jboss.deploy" value="${jboss.home}/standalone/deployments" />
+	<property environment="system" />
+	
+	<property name="release.home" value="${system.JBOSS_HOME}" />
+	<property name="release.deploy" value="${release.home}/standalone/deployments" />
+	<property name="release.modules.path" value="${release.home}/modules/system/layers/base" />
+	<property name="release.slee-service-events.path" value="${release.modules.path}/org/restcomm/slee/service" />
+	<property name="release.slee-connectivity.path" value="${release.modules.path}/org/restcomm/examples/connectivity" />
 
-	<property name="jboss.modules.path" value="${jboss.home}/modules/system/layers/base" />
-	<property name="slee-service-events.path" value="${jboss.modules.path}/org/restcomm/slee/service/events" />
-	<property name="slee-connectivity.path" value="${jboss.modules.path}/org/restcomm/example/connectivity" />
+	<property name="wildfly.home" value="${system.WILDFLY_HOME}" />
+	<property name="wildfly.deploy" value="${wildfly.home}/standalone/deployments" />
+	<property name="wildfly.modules.path" value="${wildfly.home}/modules/system/layers/base" />
+	<property name="wildfly.slee-service-events.path" value="${wildfly.modules.path}/org/restcomm/slee/service" />
+	<property name="wildfly.slee-connectivity.path" value="${wildfly.modules.path}/org/restcomm/examples/connectivity" />	
 
-	<target name="deploy">
-		<ant antfile="${home}../../examples/slee-connectivity/du-management.xml" target="deploy" inheritAll="false">
-			<property name="jboss.home" value="${jboss.home}" />
-		</ant>
-
+	<target name="deploy-colocated">
 		<!-- Deploy SLEE Service Events -->
-		<copy overwrite="true" todir="${slee-service-events.path}">
+		<copy overwrite="true" todir="${release.slee-service-events.path}">
 			<fileset dir=".">
 				<include name="events/**" />
 			</fileset>
 		</copy>
 
 		<!-- Deploy SLEE Connectivity Extension -->
-		<copy overwrite="true" todir="${slee-connectivity.path}">
+		<copy overwrite="true" todir="${release.slee-connectivity.path}">
+			<fileset dir=".">
+				<include name="extension/**" />
+				<!--<include name="modules/**" />-->
+			</fileset>
+		</copy>
+
+		<!-- Update WildFly configuration with adding jSS7 Extension and Subsystem -->
+		<replace file="${release.home}/standalone/configuration/standalone.xml">
+			<replacetoken><![CDATA[</extensions>]]></replacetoken>
+			<replacevalue><![CDATA[<extension module="org.restcomm.examples.connectivity.extension"/></extensions>]]></replacevalue>
+		</replace>
+
+		<replace file="${release.home}/modules/system/layers/base/org/telestax/slee/container/lib/main/module.xml">
+			<replacetoken><![CDATA[</dependencies>]]></replacetoken>
+			<replacevalue><![CDATA[<module name="org.restcomm.slee.service.events" export="true" /></dependencies>]]></replacevalue>
+		</replace>
+
+		<loadfile property="subsystem.config" srcFile="${basedir}/connectivity-subsystem.txt" failonerror="true"/>
+		<replace file="${release.home}/standalone/configuration/standalone.xml" value="${subsystem.config}">
+			<replacetoken><![CDATA[</profile>]]></replacetoken>
+			<replacevalue><![CDATA[</profile>]]></replacevalue>
+		</replace>
+	</target>
+
+	<target name="deploy-remote-client">
+		<!-- Deploy SLEE Service Events -->
+		<copy overwrite="true" todir="${wildfly.slee-service-events.path}">
+			<fileset dir=".">
+				<include name="events/**" />
+			</fileset>
+		</copy>
+
+		<!-- Deploy SLEE Connectivity Extension -->
+		<copy overwrite="true" todir="${wildfly.slee-connectivity.path}">
 			<fileset dir=".">
 				<include name="extension/**" />
 				<include name="modules/**" />
 			</fileset>
 		</copy>
+	
+		<replace file="${wildfly.slee-connectivity.path}/extension/main/module.xml">
+			<replacetoken><![CDATA[<module name="org.telestax.slee.container.lib"/>]]></replacetoken>
+			<replacevalue><![CDATA[<module name="org.restcomm.examples.connectivity.modules"/>]]></replacevalue>
+		</replace>		
 
 		<!-- Update WildFly configuration with adding jSS7 Extension and Subsystem -->
-		<replace file="${jboss.home}/standalone/configuration/standalone.xml">
+		<replace file="${wildfly.home}/standalone/configuration/standalone.xml">
 			<replacetoken><![CDATA[</extensions>]]></replacetoken>
-			<replacevalue><![CDATA[    <extension module="org.restcomm.example.connectivity.extension"/>
-	</extensions>]]></replacevalue>
+			<replacevalue><![CDATA[<extension module="org.restcomm.examples.connectivity.extension"/></extensions>]]></replacevalue>
 		</replace>
 
 		<loadfile property="subsystem.config" srcFile="${basedir}/connectivity-subsystem.txt" failonerror="true"/>
-		<replace file="${jboss.home}/standalone/configuration/standalone.xml" value="${subsystem.config}">
+		<replace file="${wildfly.home}/standalone/configuration/standalone.xml" value="${subsystem.config}">
 			<replacetoken><![CDATA[</profile>]]></replacetoken>
-			<replacevalue><![CDATA[
-	</profile>]]></replacevalue>
+			<replacevalue><![CDATA[</profile>]]></replacevalue>
 		</replace>
-
 	</target>
 
-	<target name="undeploy">
-		<ant antfile="${home}../../examples/slee-connectivity/du-management.xml" target="undeploy" inheritAll="false">
-			<property name="jboss.home" value="${jboss.home}" />
-		</ant>
-		<!-- Undeploy SLEE Connectivity Extension -->
-		<delete dir="${slee-service-events.path}" />
-		<delete dir="${slee-connectivity.path}" />
+	<target name="deploy-remote-server">
+		<!-- Deploy SLEE Service Events -->
+		<copy overwrite="true" todir="${release.slee-service-events.path}">
+			<fileset dir=".">
+				<include name="events/**" />
+			</fileset>
+		</copy>
 
-		<replace file="${jboss.home}/standalone/configuration/standalone.xml">
-			<replacetoken><![CDATA[<extension module="org.restcomm.example.connectivity.extension"/>]]></replacetoken>
+		<!-- Deploy SLEE Connectivity Extension -->
+		<copy overwrite="true" todir="${release.slee-connectivity.path}">
+			<fileset dir=".">
+				<include name="extension/**" />
+			</fileset>
+		</copy>
+
+		<replace file="${release.home}/modules/system/layers/base/org/telestax/slee/container/lib/main/module.xml">
+			<replacetoken><![CDATA[</dependencies>]]></replacetoken>
+			<replacevalue><![CDATA[<module name="org.restcomm.slee.service.events" export="true" /></dependencies>]]></replacevalue>
+		</replace>
+	</target>
+
+	<target name="deploy-remote-server-du">
+		<ant antfile="${release.home}/../examples/slee-connectivity/du-management.xml" target="deploy-remote-server" inheritAll="false">
+			<property name="release.home" value="${release.home}" />
+		</ant>
+	</target>
+
+	<target name="deploy-remote-client-du">
+		<ant antfile="${release.home}/../examples/slee-connectivity/du-management.xml" target="deploy-remote-client" inheritAll="false">
+			<property name="wildfly.home" value="${wildfly.home}" />
+		</ant>
+	</target>
+
+	<target name="undeploy-colocated">
+		<!-- Undeploy SLEE Connectivity Extension -->
+		<delete dir="${release.slee-service-events.path}" />
+		<delete dir="${release.slee-connectivity.path}" />
+
+		<replace file="${release.home}/standalone/configuration/standalone.xml">
+			<replacetoken><![CDATA[<extension module="org.restcomm.examples.connectivity.extension"/>]]></replacetoken>
+			<replacevalue><![CDATA[]]></replacevalue>
+		</replace>
+
+		<replace file="${release.home}/modules/system/layers/base/org/telestax/slee/container/lib/main/module.xml">
+			<replacetoken><![CDATA[<module name="org.restcomm.slee.service.events" export="true" />]]></replacetoken>
+			<replacevalue><![CDATA[]]></replacevalue>
+		</replace>
+
+		<loadfile property="subsystem.config" srcFile="${basedir}/connectivity-subsystem.txt"/>
+		<replace file="${release.home}/standalone/configuration/standalone.xml" token="${subsystem.config}" value="" />
+	</target>
+
+	<target name="undeploy-remote-client">
+		<!-- Undeploy SLEE Connectivity Extension -->
+		<delete dir="${wildfly.slee-service-events.path}" />
+		<delete dir="${wildfly.slee-connectivity.path}" />
+
+		<replace file="${wildfly.home}/standalone/configuration/standalone.xml">
+			<replacetoken><![CDATA[<extension module="org.restcomm.examples.connectivity.extension"/>]]></replacetoken>
+			<replacevalue><![CDATA[]]></replacevalue>
+		</replace>
+
+		<loadfile property="subsystem.config" srcFile="${basedir}/connectivity-subsystem.txt"/>
+		<replace file="${wildfly.home}/standalone/configuration/standalone.xml" token="${subsystem.config}" value="" />
+	</target>
+
+	<target name="undeploy-remote-server">
+		<!-- Undeploy SLEE Connectivity Extension -->
+		<delete dir="${release.slee-service-events.path}" />
+		<delete dir="${release.slee-connectivity.path}" />
+
+		<replace file="${release.home}/standalone/configuration/standalone.xml">
+			<replacetoken><![CDATA[<extension module="org.restcomm.examples.connectivity.extension"/>]]></replacetoken>
+			<replacevalue><![CDATA[]]></replacevalue>
+		</replace>
+
+		<replace file="${release.home}/modules/system/layers/base/org/telestax/slee/container/lib/main/module.xml">
+			<replacetoken><![CDATA[<module name="org.restcomm.slee.service.events" export="true" />]]></replacetoken>
 			<replacevalue><![CDATA[]]></replacevalue>
 		</replace>
 	</target>
 
+	<target name="undeploy-remote-server-du">
+		<ant antfile="${release.home}/../examples/slee-connectivity/du-management.xml" target="undeploy-remote-server" inheritAll="false">
+			<property name="release.home" value="${release.home}" />
+		</ant>
+	</target>
+
+	<target name="undeploy-remote-client-du">
+		<ant antfile="${wildfly.home}/../examples/slee-connectivity/du-management.xml" target="undeploy-remote-client" inheritAll="false">
+			<property name="wildfly.home" value="${wildfly.home}" />
+		</ant>
+	</target>
 </project>

@@ -52,7 +52,7 @@
 										</copy>
 										<copy file="${basedir}/connectivity-subsystem.txt" todir="${release.dir}/examples/slee-connectivity" />
 
-										<copy overwrite="true" file="${basedir}/../slee/du/target/build.xml" tofile="${release.dir}/examples/slee-connectivity/du-management.xml" />
+										<copy overwrite="true" file="${basedir}/../slee/du/target/build/main/build.xml" tofile="${release.dir}/examples/slee-connectivity/du-management.xml" />
 										<copy overwrite="true" file="${basedir}/build.xml" todir="${release.dir}/examples/slee-connectivity">
     									<filterset>
     										<filter token="JBOSS.PATH" value="${jboss.path}" />
