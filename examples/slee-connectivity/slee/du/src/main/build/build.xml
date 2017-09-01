@@ -11,7 +11,7 @@
 	<!-- CORE RELATED -->
 
 	<path id="project.classpath">
-		<fileset dir="${jboss.homedir}/modules/system/layers/base/org/telestax/slee/container/lib/main">
+		<fileset dir="${jboss.homedir}/modules/system/layers/base/org/restcomm/slee/container/lib/main">
 			<include name="*.jar" />
 		</fileset>
 	</path>

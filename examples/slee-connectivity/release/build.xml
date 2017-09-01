@@ -37,7 +37,7 @@
 			<replacevalue><![CDATA[<extension module="org.restcomm.examples.connectivity.extension"/></extensions>]]></replacevalue>
 		</replace>
 
-		<replace file="${release.home}/modules/system/layers/base/org/telestax/slee/container/lib/main/module.xml">
+		<replace file="${release.home}/modules/system/layers/base/org/restcomm/slee/container/lib/main/module.xml">
 			<replacetoken><![CDATA[</dependencies>]]></replacetoken>
 			<replacevalue><![CDATA[<module name="org.restcomm.slee.service.events" export="true" /></dependencies>]]></replacevalue>
 		</replace>
@@ -98,7 +98,7 @@
 			</fileset>
 		</copy>
 
-		<replace file="${release.home}/modules/system/layers/base/org/telestax/slee/container/lib/main/module.xml">
+		<replace file="${release.home}/modules/system/layers/base/org/restcomm/slee/container/lib/main/module.xml">
 			<replacetoken><![CDATA[</dependencies>]]></replacetoken>
 			<replacevalue><![CDATA[<module name="org.restcomm.slee.service.events" export="true" /></dependencies>]]></replacevalue>
 		</replace>
@@ -126,7 +126,7 @@
 			<replacevalue><![CDATA[]]></replacevalue>
 		</replace>
 
-		<replace file="${release.home}/modules/system/layers/base/org/telestax/slee/container/lib/main/module.xml">
+		<replace file="${release.home}/modules/system/layers/base/org/restcomm/slee/container/lib/main/module.xml">
 			<replacetoken><![CDATA[<module name="org.restcomm.slee.service.events" export="true" />]]></replacetoken>
 			<replacevalue><![CDATA[]]></replacevalue>
 		</replace>
@@ -159,7 +159,7 @@
 			<replacevalue><![CDATA[]]></replacevalue>
 		</replace>
 
-		<replace file="${release.home}/modules/system/layers/base/org/telestax/slee/container/lib/main/module.xml">
+		<replace file="${release.home}/modules/system/layers/base/org/restcomm/slee/container/lib/main/module.xml">
 			<replacetoken><![CDATA[<module name="org.restcomm.slee.service.events" export="true" />]]></replacetoken>
 			<replacevalue><![CDATA[]]></replacevalue>
 		</replace>
