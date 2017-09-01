@@ -14,8 +14,8 @@
     <name>RestComm SLEE Connectivity Example Modules</name>
 
     <properties>
-        <module.name>org.restcomm.examples.connectivity.lib</module.name>
-        <module.path>org/restcomm/examples/connectivity/lib</module.path>
+        <module.name>org.restcomm.examples.connectivity.modules</module.name>
+        <module.path>org/restcomm/examples/connectivity/modules</module.path>
     </properties>
 
     <dependencies>

@@ -66,7 +66,7 @@
 		</copy>
 	
 		<replace file="${wildfly.slee-connectivity.path}/extension/main/module.xml">
-			<replacetoken><![CDATA[<module name="org.telestax.slee.container.lib"/>]]></replacetoken>
+			<replacetoken><![CDATA[<module name="org.restcomm.slee.container.lib"/>]]></replacetoken>
 			<replacevalue><![CDATA[<module name="org.restcomm.examples.connectivity.modules"/>]]></replacevalue>
 		</replace>		
 
