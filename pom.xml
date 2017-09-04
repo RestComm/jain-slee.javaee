@@ -25,6 +25,10 @@
 		<url>https://github.com/RestComm/jain-slee.javaee</url>
 	</scm>
 
+	<properties>
+		<restcomm.jain.slee.version>7.1.81</restcomm.jain.slee.version>
+	</properties>
+
 	<profiles>
 		<profile>
 			<id>maven-release</id>
