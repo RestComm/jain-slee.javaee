@@ -26,7 +26,7 @@
 	</scm>
 
 	<properties>
-		<restcomm.jain.slee.version>7.1.81</restcomm.jain.slee.version>
+		<restcomm.jain.slee.version>7.1.82</restcomm.jain.slee.version>
 	</properties>
 
 	<profiles>
