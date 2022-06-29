@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <version.wildfly.core>2.2.0.Final</version.wildfly.core>
+        <version.wildfly.core>6.0.0.Final</version.wildfly.core>
 
         <version.junit>4.8.2</version.junit>
     </properties>
